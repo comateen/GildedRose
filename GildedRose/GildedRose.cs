@@ -9,17 +9,18 @@ namespace GildedRoseKata
         {
             this.Items = Items;
         }
-
+        
         public void UpdateQuality()
         {
             foreach (Item item in Items)
             {
                 if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    if (item.Quality > 0)
+                    if (item.Name != "Sulfuras, Hand of Ragnaros")
                     {
-                        if (item.Name != "Sulfuras, Hand of Ragnaros")
+                        if (item.Quality > 0)
                         {
+                        
                             item.Quality = item.Quality - 1;
                         }
                     }
