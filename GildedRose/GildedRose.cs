@@ -25,7 +25,7 @@ namespace GildedRoseKata
                         }
                     }
                 }
-                else
+                if(!(item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert"))
                 {
                     if (item.Quality < 50)
                     {
