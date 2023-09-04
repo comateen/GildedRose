@@ -68,18 +68,13 @@ namespace GildedRoseKata
 
                 if (item.Name == "Aged Brie")
                 {
-                    item.SellIn = item.SellIn - 1;
-                }
-                if (item.Name == "Aged Brie")
-                {
                     if (item.Quality < 50)
                     {
                         item.Quality = item.Quality + 1;
                     }
-                }
                 
-                if (item.Name == "Aged Brie")
-                {
+                    item.SellIn = item.SellIn - 1;
+               
                     if (item.SellIn < 0)
                     {
                         if (item.Quality < 50)
