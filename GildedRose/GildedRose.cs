@@ -21,13 +21,9 @@ namespace GildedRoseKata
 
                         item.Quality = item.Quality - 1;
                     }
-                }
-                if (IsBaseItem(item))
-                {
+                
                     item.SellIn = item.SellIn - 1;
-                }
-                if (IsBaseItem(item))
-                {
+                
                     if (item.SellIn < 0)
                     {
                         if (item.Quality > 0)
