@@ -14,7 +14,7 @@ namespace GildedRoseKata
         {
             foreach (Item item in Items)
             {
-                if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert" && item.Name != "Sulfuras, Hand of Ragnaros")
+                if (IsBaseItem(item))
                 {
                     if (item.Quality > 0)
                     {
@@ -82,6 +82,11 @@ namespace GildedRoseKata
                     }
                 }
             }
+        }
+
+        private static bool IsBaseItem(Item item)
+        {
+            return item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert" && item.Name != "Sulfuras, Hand of Ragnaros";
         }
     }
 }
