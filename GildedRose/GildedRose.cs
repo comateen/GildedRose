@@ -22,13 +22,21 @@ namespace GildedRoseKata
                         item.Quality = item.Quality - 1;
                     }
                 }
-                if (item.Name == "Aged Brie")
+                if (IsBaseItem(item))
                 {
-                    if (item.Quality < 50)
+                    item.SellIn = item.SellIn - 1;
+                }
+                if (IsBaseItem(item))
+                {
+                    if (item.SellIn < 0)
                     {
-                        item.Quality = item.Quality + 1;
+                        if (item.Quality > 0)
+                        {
+                            item.Quality = item.Quality - 1;
+                        }
                     }
                 }
+                
                 if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
                     if (item.Quality < 50)
@@ -51,38 +59,25 @@ namespace GildedRoseKata
                             }
                         }
                     }
+                    item.SellIn = item.SellIn - 1;
+                    if (item.SellIn < 0)
+                    {
+                        item.Quality = item.Quality - item.Quality;
+                    }
                 }
 
                 if (item.Name == "Aged Brie")
                 {
                     item.SellIn = item.SellIn - 1;
                 }
-                if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                if (item.Name == "Aged Brie")
                 {
-                    item.SellIn = item.SellIn - 1;
-                }
-                if (IsBaseItem(item))
-                {
-                    item.SellIn = item.SellIn - 1;
-                }
-
-                if (IsBaseItem(item))
-                {
-                    if (item.SellIn < 0)
-                    {    
-                        if (item.Quality > 0)
-                        {
-                            item.Quality = item.Quality - 1;
-                        }
+                    if (item.Quality < 50)
+                    {
+                        item.Quality = item.Quality + 1;
                     }
                 }
-                if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    if (item.SellIn < 0)
-                    {   
-                        item.Quality = item.Quality - item.Quality;
-                    }
-                }
+                
                 if (item.Name == "Aged Brie")
                 {
                     if (item.SellIn < 0)
