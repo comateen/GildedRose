@@ -17,24 +17,7 @@ namespace GildedRoseKata
 
                 //Sulfuras disprait car aucune action si == sulfuras
 
-                if (IsBaseItem(item))
-                {
-                    if (item.Quality > 0)
-                    {
-
-                        item.Quality = item.Quality - 1;
-                    }
                 
-                    item.SellIn = item.SellIn - 1;
-                
-                    if (item.SellIn < 0)
-                    {
-                        if (item.Quality > 0)
-                        {
-                            item.Quality = item.Quality - 1;
-                        }
-                    }
-                }
                 
                 if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
@@ -65,7 +48,7 @@ namespace GildedRoseKata
                     }
                 }
 
-                if (item.Name == "Aged Brie")
+                else if (item.Name == "Aged Brie")
                 {
                     if (item.Quality < 50)
                     {
@@ -79,6 +62,32 @@ namespace GildedRoseKata
                         if (item.Quality < 50)
                         {
                             item.Quality = item.Quality + 1;
+                        }
+                    }
+                }
+                else if ((item.Name == "Sulfuras, Hand of Ragnaros"))
+                {
+                    //aucune action à effectuer
+                }
+                else if (((item.Name == "Conjured Mana Cake")))
+                {
+                    //TODO
+                }
+                else
+                {
+                    if (item.Quality > 0)
+                    {
+
+                        item.Quality = item.Quality - 1;
+                    }
+
+                    item.SellIn = item.SellIn - 1;
+
+                    if (item.SellIn < 0)
+                    {
+                        if (item.Quality > 0)
+                        {
+                            item.Quality = item.Quality - 1;
                         }
                     }
                 }
