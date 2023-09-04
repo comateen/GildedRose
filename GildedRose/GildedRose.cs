@@ -58,19 +58,25 @@ namespace GildedRoseKata
                     item.SellIn = item.SellIn - 1;
                 }
 
-                if (item.SellIn < 0)
+                if (IsBaseItem(item))
                 {
-                    if (IsBaseItem(item))
-                    {
+                    if (item.SellIn < 0)
+                    {    
                         if (item.Quality > 0)
                         {
                             item.Quality = item.Quality - 1;
                         }
                     }
+                }
+                if (item.SellIn < 0)
+                {
                     if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                     {
                         item.Quality = item.Quality - item.Quality;
                     }
+                }
+                if (item.SellIn < 0)
+                {
                     if (item.Name == "Aged Brie")
                     {
                         if (item.Quality < 50)
