@@ -14,6 +14,9 @@ namespace GildedRoseKata
         {
             foreach (Item item in Items)
             {
+
+                //Sulfuras disprait car aucune action si == sulfuras
+
                 if (IsBaseItem(item))
                 {
                     if (item.Quality > 0)
