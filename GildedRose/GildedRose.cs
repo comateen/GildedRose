@@ -16,82 +16,96 @@ namespace GildedRoseKata
             { 
                 if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    if (item.Quality < 50)
-                    {
-                        QualityUp(item);
-
-                        if (item.SellIn < 11 && item.Quality < 50)
-                        {
-                            QualityUp(item);
-                        }
-
-                        if (item.SellIn < 6 && item.Quality < 50)
-                        {
-                            QualityUp(item);
-                        }
-                    }
-                    SellInDown(item);
-                    if (item.SellIn < 0)
-                    {
-                        QualityToZero(item);
-                    }
+                    UpdateBackStageItem(item);
                 }
-
                 else if (item.Name == "Aged Brie")
                 {
-                    if (item.Quality < 50)
-                    {
-                        QualityUp(item);
-                    }
-
-                    SellInDown(item);
-
-                    if (item.SellIn < 0)
-                    {
-                        if (item.Quality < 50)
-                        {
-                            QualityUp(item);
-                        }
-                    }
+                    UpdateAgedBrieItem(item);
                 }
                 else if ((item.Name == "Sulfuras, Hand of Ragnaros"))
                 {
-                    //aucune action à effectuer
+                    //rien à effectuer sur Sulfuras
+                    //Par le feu soyez purifié!
                 }
                 else if (((item.Name == "Conjured Mana Cake")))
                 {
-                    if (item.Quality > 0)
-                    {
-                        QualityDown(item);
-                    }
-                    if (item.Quality > 0)
-                    {
-                        QualityDown(item);
-                    }
-                    SellInDown(item);
-                    if (item.SellIn < 0 && item.Quality > 0)
-                    {
-                        QualityDown(item);
-                    }
-                    if (item.SellIn < 0 && item.Quality > 0)
-                    {
-                        QualityDown(item);
-                    }
+                    UpdateConjuredItem(item);
                 }
                 else
                 {
-                    if (item.Quality > 0)
-                    {
-                        QualityDown(item);
-                    }
-
-                    SellInDown(item);
-
-                    if (item.SellIn < 0 && item.Quality > 0)
-                    {
-                        QualityDown(item);
-                    }
+                    UpdateStandardItem(item);
                 }
+            }
+        }
+
+        private static void UpdateBackStageItem(Item item)
+        {
+            SellInDown(item);
+            if (item.SellIn > 0 && item.Quality < 50)
+            {
+                QualityUp(item);
+
+                if (item.SellIn <= 10 && item.Quality < 50)
+                {
+                    QualityUp(item);
+                }
+
+                if (item.SellIn <= 5 && item.Quality < 50)
+                {
+                    QualityUp(item);
+                }
+            }
+            
+            if (item.SellIn < 0)
+            {
+                QualityToZero(item);
+            }
+        }
+
+        private static void UpdateAgedBrieItem(Item item)
+        {
+            if (item.Quality < 50)
+            {
+                QualityUp(item);
+            }
+            SellInDown(item);
+            if (item.SellIn < 0)
+            {
+                if (item.Quality < 50)
+                {
+                    QualityUp(item);
+                }
+            }
+        }
+
+        private static void UpdateConjuredItem(Item item)
+        {
+            
+            item.Quality -= 2;
+
+            if (item.SellIn <= 0)
+            {
+                item.Quality -= 2;
+            }
+            SellInDown(item);
+            if (item.Quality < 0)
+            {
+                item.Quality = 0;
+            }
+        }
+
+        private static void UpdateStandardItem(Item item)
+        {
+            if (item.Quality > 0)
+            {
+                QualityDown(item);
+            }
+
+            SellInDown(item);
+
+            if (item.SellIn < 0 && item.Quality > 0)
+            {
+                QualityDown(item);
             }
         }
 

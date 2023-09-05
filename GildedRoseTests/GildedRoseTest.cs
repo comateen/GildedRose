@@ -7,7 +7,7 @@ namespace GildedRoseTests
     public class GildedRoseTest
     {
         /// <summary>
-        /// Méthode de test de l'item, son prix de vente, sa qualité, son prix de vente attendu à la sortie, et sa qualité à la sortie
+        /// Méthode de test de l'item, son nombre de jour restant, sa qualité, son nbr de jour attendu à la sortie, et sa qualité à la sortie
         /// </summary>
         /// <param name="itemName"></param>
         /// <param name="sellIn"></param>
@@ -45,8 +45,9 @@ namespace GildedRoseTests
 
         [Theory]
         [InlineData(20, 1, 19, 2)]
-        [InlineData(11, 3, 10, 4)]
+        [InlineData(11, 2, 10, 4)]
         [InlineData(10, 2, 9, 4)]
+        [InlineData(6, 0, 5, 3)]
         [InlineData(5, 3, 4, 6)]
         [InlineData(0, 10, -1, 0)]
         public void TestBackstage(int sellIn, int quality, int expectedSellIn, int expectedQuality)
@@ -70,6 +71,7 @@ namespace GildedRoseTests
         [InlineData(2, 3, 1, 1)]
         [InlineData(0, 0, -1, 0)]
         [InlineData(0, 2, -1, 0)]
+        [InlineData(3, 6, 2, 4)]
         public void TestConjuredItem(int sellIn, int quality, int expectedSellIn, int expectedQuality)
         {
             TestUpdateQuality("Conjured Mana Cake", sellIn, quality, expectedSellIn, expectedQuality);
