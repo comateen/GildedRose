@@ -25,7 +25,7 @@ namespace GildedRoseKata
                             QualityUp(item);
                         }
 
-                        if (item.SellIn < 6 && item.Quality < 5)
+                        if (item.SellIn < 6 && item.Quality < 50)
                         {
                             QualityUp(item);
                         }
