@@ -66,10 +66,10 @@ namespace GildedRoseTests
 
         [Theory]
         [InlineData(1, 1, 0, 0)]
+        [InlineData(1, 2, 0, 0)]
+        [InlineData(2, 3, 1, 1)]
         [InlineData(0, 0, -1, 0)]
         [InlineData(0, 2, -1, 0)]
-        [InlineData(1, 3, 0, 2)]
-        [InlineData(2, 2, 1, 1)]
         public void TestConjuredItem(int sellIn, int quality, int expectedSellIn, int expectedQuality)
         {
             TestUpdateQuality("Conjured Mana Cake", sellIn, quality, expectedSellIn, expectedQuality);

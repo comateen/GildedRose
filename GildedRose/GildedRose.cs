@@ -60,7 +60,23 @@ namespace GildedRoseKata
                 }
                 else if (((item.Name == "Conjured Mana Cake")))
                 {
-                    //TODO
+                    if (item.Quality > 0)
+                    {
+                        QualityDown(item);
+                    }
+                    if (item.Quality > 0)
+                    {
+                        QualityDown(item);
+                    }
+                    SellInDown(item);
+                    if (item.SellIn < 0 && item.Quality > 0)
+                    {
+                        QualityDown(item);
+                    }
+                    if (item.SellIn < 0 && item.Quality > 0)
+                    {
+                        QualityDown(item);
+                    }
                 }
                 else
                 {
