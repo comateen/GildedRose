@@ -90,7 +90,7 @@ namespace GildedRoseKata
             SellInDown(item);
             if (item.Quality < 0)
             {
-                item.Quality = 0;
+                QualityToZero(item);
             }
         }
 
@@ -111,7 +111,7 @@ namespace GildedRoseKata
 
         private static void QualityToZero(Item item)
         {
-            item.Quality = item.Quality - item.Quality;
+            item.Quality = 0;
         }
 
         private static void SellInDown(Item item)
